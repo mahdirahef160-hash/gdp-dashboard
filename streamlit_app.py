@@ -1,58 +1,59 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
+import time
 
-# إعدادات الصفحة الفخمة
-st.set_page_config(page_title="Alexandra Empire", page_icon="🔱", layout="wide")
+# إعدادات الواجهة السيادية
+st.set_page_config(page_title="Alexandra AI Intelligence", layout="wide")
 
-# تصميم الواجهة باستخدام CSS لجعلها تبدو كالمحترفين
+# تصميم CSS متقدم للأنظمة المعقدة
 st.markdown("""
     <style>
-    .main {
-        background-color: #0e1117;
-        color: #ffffff;
-    }
-    .stButton>button {
-        width: 100%;
-        border-radius: 20px;
-        background-color: #ff4b4b;
-        color: white;
-        font-weight: bold;
-    }
-    h1 {
-        text-align: center;
-        color: #00d4ff;
-        text-shadow: 2px 2px 5px #000;
-    }
+    .reportview-container { background: #000428; }
+    .main { background: linear-gradient(to right, #000428, #004e92); color: white; }
+    .stProgress > div > div > div > div { background-image: linear-gradient(to right, #00d4ff , #0050ff); }
     </style>
     """, unsafe_allow_html=True)
 
-# العنوان الرئيسي
-st.title("🔱 المقر السري للإمبراطورة ألكساندرا 🔱")
+st.title("🌐 نظام ألكساندرا للرصد والتحليل العالمي")
 
-# عرض رسالة ترحيب فخمة
-st.write("---")
-col1, col2, col3 = st.columns([1, 2, 1])
+# منطقة العمليات المعقدة
+col1, col2 = st.columns([1, 1])
+
+with col1:
+    st.subheader("⚙️ تفعيل وحدات الذكاء الاصطناعي")
+    task = st.selectbox("اختر المهمة الاستخباراتية:", 
+                        ["تحليل اتجاهات الأسواق العالمية", "رصد التهديدات السيبرانية", "التنبؤ بالنمو التكنولوجي 2026"])
+    
+    if st.button("بدء المعالجة العميقة (Deep Processing)"):
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+        for i in range(100):
+            time.sleep(0.02)
+            progress_bar.progress(i + 1)
+            status_text.text(f"جاري تحليل المصفوفات... {i+1}%")
+        st.success("✅ اكتمل التحليل. تم استخراج الأنماط المخفية.")
 
 with col2:
-    st.header("مرحباً بكِ في عصر السيادة الرقمية")
-    st.info("هذا النظام محمي بشفرات 'ألكساندرا' الخاصة. الوصول مسموح فقط للنخبة.")
-    
-    # إضافة زر تفاعلي "لتفعيل القوة"
-    if st.button("تفعيل بروتوكول الاحتفال 🚀"):
-        st.balloons()
-        st.snow()
-        st.success("تم تفعيل النظام بنجاح! أنتِ الآن تديرين الإمبراطورية.")
+    st.subheader("📊 مصفوفة البيانات الضخمة (Real-time)")
+    # توليد بيانات معقدة عشوائية للمحاكاة
+    data = pd.DataFrame(
+        np.random.randn(50, 4),
+        columns=['Security', 'Economy', 'Innovation', 'Stability']
+    )
+    st.area_chart(data)
 
-# إضافة رسم بياني فخم ومتحرك
-import pandas as pd
-import numpy as np
-
+# إضافة خريطة تفاعلية (هذا هو الجزء المعقد الذي يظهر احترافيتك)
 st.write("---")
-st.subheader("📊 مراقبة نبض الإمبراطورية (بيانات حية)")
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['الطاقة', 'الأمن', 'السيطرة'])
-st.line_chart(chart_data)
+st.subheader("📍 خريطة الانتشار والسيطرة الرقمية")
+map_data = pd.DataFrame(
+    np.random.randn(100, 2) / [50, 50] + [33.8864, 9.5375], # متمكز حول تونس
+    columns=['lat', 'lon']
+)
+st.map(map_data)
 
-st.sidebar.title("إعدادات الإمبراطورة")
-st.sidebar.write("المسؤولة: Alexandra")
-st.sidebar.write("الموقع: تونس 🇹🇳")
-st.sidebar.button("تسجيل الخروج الآمن")
+st.sidebar.markdown("### 🔑 صلاحيات المسؤول")
+st.sidebar.info("الحالة: متصل عبر نفق مشفر")
+st.sidebar.image("https://img.icons8.com/fluent/100/000000/shield.png")
+
 
